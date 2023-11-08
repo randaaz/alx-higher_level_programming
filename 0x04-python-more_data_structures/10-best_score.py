@@ -2,7 +2,7 @@
 def best_score(a_dictionary):
     if a_dictionary is None:
         return None
-    Kmax = ""
+    Kmax = None
     vmax = 0
     for key, value in a_dictionary.items():
         if value > vmax:
