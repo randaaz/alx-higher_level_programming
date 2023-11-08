@@ -13,7 +13,7 @@ void print_python_list_info(PyObject *p)
 	int  volume, assign, j;
 	const char *o;
 	PyListObject *l = (PyListObject *)p;
-	PyVarObject v = (PyVarObject *)p;
+	PyVarObject *v = (PyVarObject *)p;
 
 	volume = v->ob_size;
 	assign = l->allocated;
@@ -54,6 +54,7 @@ void print_python_bytes(PyObject *p)
 		volume = 10;
 	else
 		volume = ((PyVarObject *)p)->ob_size + 1;
+	 printf("first %d bytes", volume);
 	for (j = 0; j < volume; j++)
 	{
 		printf("02hhx", o->ob_sval[j]);
