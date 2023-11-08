@@ -27,7 +27,9 @@ void print_python_list(PyObject *p)
 		t = l->ob_item[j]->ob_type->tp_name;
 		printf("Element %d: %s\n", j, t);
 		if (strcmp(t, "bytes") == 0)
+		{
 			print_python_bytes(l->ob_item[j]);
+		}
 	}
 }
 
@@ -51,9 +53,13 @@ void print_python_bytes(PyObject *p)
 	printf("  trying string: %s\n", bytes->ob_sval);
 
 	if (((PyVarObject *)p)->ob_size > 10)
-		volume = 10;
+	{
+		 volume = 10;
+	}
 	else
+	{
 		volume = ((PyVarObject *)p)->ob_size + 1;
+	}
 
 	printf("  first %d bytes: ", volume);
 	for (j = 0; j < volume; j++)
