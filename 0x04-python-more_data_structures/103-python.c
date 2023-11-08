@@ -4,14 +4,14 @@ void print_python_list(PyObject *p);
 void print_python_bytes(PyObject *p);
 
 /**
- * print_python_list_info - Prints information about a Python list
+ * print_python_list - Prints information about a Python list
  * @p: PyObject representing a Python list
  */
 
-void print_python_list_info(PyObject *p)
+void print_python_list(PyObject *p)
 {
-	int  volume, assign, j;
-	const char *o;
+	int volume, assign, j;
+	const char *t;
 	PyListObject *l = (PyListObject *)p;
 	PyVarObject *v = (PyVarObject *)p;
 
@@ -24,9 +24,9 @@ void print_python_list_info(PyObject *p)
 
 	for (j = 0; j < volume; j++)
 	{
-		o = l->ob_item[i]->ob_type->tp_name;
-		printf("Element %d: %s\n", j, o);
-		if (strcmp(o, "bytes") == 0)
+		t = l->ob_item[j]->ob_type->tp_name;
+		printf("Element %d: %s\n", j, t);
+		if (strcmp(t, "bytes") == 0)
 			print_python_bytes(l->ob_item[j]);
 	}
 }
@@ -36,32 +36,32 @@ void print_python_list_info(PyObject *p)
  * @p: PyObject pointer to the bytes object
  *
  */
-
 void print_python_bytes(PyObject *p)
 {
 	unsigned char j, volume;
-	PyBytesObject *o = (PyBytesObject *)p;
+	PyBytesObject *bytes = (PyBytesObject *)p;
 
-	print("[.] bytes object info\n");
+	printf("[.] bytes object info\n");
 	if (strcmp(p->ob_type->tp_name, "bytes") != 0)
 	{
 		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
 	}
 	printf("  size: %ld\n", ((PyVarObject *)p)->ob_size);
-	printf("  trying string: %s\n", o->ob_sval);
+	printf("  trying string: %s\n", bytes->ob_sval);
+
 	if (((PyVarObject *)p)->ob_size > 10)
 		volume = 10;
 	else
 		volume = ((PyVarObject *)p)->ob_size + 1;
-	 printf("first %d bytes", volume);
+
+	printf("  first %d bytes: ", volume);
 	for (j = 0; j < volume; j++)
 	{
-		printf("02hhx", o->ob_sval[j]);
+		printf("%02hhx", bytes->ob_sval[j]);
 		if (j == (volume - 1))
 			printf("\n");
 		else
 			printf(" ");
 	}
-
 }
