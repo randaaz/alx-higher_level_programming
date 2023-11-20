@@ -1,14 +1,10 @@
 #include <Python.h>
-#include <stdlib.h>
 #include <stdio.h>
-#include <floatobject.h>
 
 /**
  * print_python_float - Prints information about a Python float object.
  * @p: PyObject representing a Python float.
- *
  */
-
 void print_python_float(PyObject *p)
 {
 	double data;
@@ -28,7 +24,6 @@ void print_python_float(PyObject *p)
  * print_python_list - Prints information about a Python list
  * @p: PyObject representing a Python list
  */
-
 void print_python_list(PyObject *p)
 {
 	int i;
@@ -56,7 +51,6 @@ void print_python_list(PyObject *p)
 /**
  * print_python_bytes - Print information about a Python bytes object
  * @p: PyObject pointer to the bytes object
- *
  */
 void print_python_bytes(PyObject *p)
 {
