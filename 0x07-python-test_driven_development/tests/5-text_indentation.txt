@@ -1,0 +1,135 @@
+The ``5-text_indentation`` module
+============================
+
+Using ``text_indentation``
+---------------------
+
+Import module:
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+    
+Test empty:
+    >>> text_indentation("")
+
+Test empty and spaces:
+    >>> text_indentation("      ")
+
+Test simple string:
+    >>> text_indentation("hello: world")
+    hello:
+    <BLANKLINE>
+    world
+
+Test delims and spaces:
+    >>> text_indentation("      ?:  :  ")
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+Test just newline:
+    >>> text_indentation("\n")
+    <BLANKLINE>
+
+Test two newline:
+    >>> text_indentation("\n\n")
+    <BLANKLINE>
+    <BLANKLINE>
+
+Test multiple delimeters:
+    >>> text_indentation("Python: is? versatile. language")
+    Python:
+    <BLANKLINE>
+    is?
+    <BLANKLINE>
+    versatile.
+    <BLANKLINE>
+    language
+
+Test multiple delimeters with spaces:
+    >>> text_indentation("Python   :     programming    ?    versatile.    readable")
+    Python:
+    <BLANKLINE>
+    programming?
+    <BLANKLINE>
+    versatile.
+    <BLANKLINE>
+    readable
+
+Test multiple delimeters with spaces at end:
+    >>> text_indentation("Python   :     programming    ?    versatile.    readable     ")
+    Python:
+    <BLANKLINE>
+    programming?
+    <BLANKLINE>
+    versatile.
+    <BLANKLINE>
+    readable
+
+Test single delimiter with spaces:
+    >>> text_indentation("     ?   ")
+    ?
+    <BLANKLINE>
+
+Test single delimiter followed by text
+    >>> text_indentation("?world.")
+    ?
+    <BLANKLINE>
+    world.
+    <BLANKLINE>
+
+Test existing newlines and delimiters:
+    >>> text_indentation("?\n\n.\n\n:")
+    ?
+    <BLANKLINE>
+    <BLANKLINE>
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    <BLANKLINE>
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+Test delimeters with no thing except delimeters:
+    >>> text_indentation(".?:")
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+Test string and two newlines:
+    >>> text_indentation("world\n\n")
+    world
+    <BLANKLINE>
+
+Test with no delimiter:
+    >>> text_indentation("hello world")
+    hello world
+
+Test spaces:
+    >>> text_indentation("hello          ")
+    hello
+
+Test spaces at the beginning:
+    >>> text_indentation("        hello")
+    hello
+    
+Test spaces at both ends:
+    >>> text_indentation("        hello          ")
+    hello
+
+Test invalid input (number):
+    >>> text_indentation(42)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+Test invalid input (None):
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
