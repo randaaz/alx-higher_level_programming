@@ -8,12 +8,12 @@ class Rectangle:
     number_of_instances = 0
     """int: public attribute representing the number of instances."""
 
-    print_symbol = "#"
+    print_symbol = '#'
     """type: representing the symbol used for string representation."""
 
     def __init__(self, width=0, height=0):
-        self.height = height
         self.width = width
+        self.height = height
         Rectangle.number_of_instances += 1
 
     @property
