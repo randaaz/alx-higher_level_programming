@@ -62,40 +62,32 @@ def _lout(bord, r, c):
         r (int): The row index of the queen.
         c (int): The column index of the queen.
     """
-    # x out
     for m in range(c + 1, len(bord)):
         bord[r][m] = "x"
-    # x out all
     for m in range(c - 1, -1, -1):
         bord[r][m] = "x"
-    # x out
     for y in range(r + 1, len(bord)):
         bord[y][c] = "x"
-    # x out
     for y in range(r - 1, -1, -1):
         bord[y][c] = "x"
-    # x out
     m = c + 1
     for y in range(r + 1, len(bord)):
         if m >= len(bord):
             break
         bord[y][m] = "x"
         m += 1
-    # x out
     m = c - 1
     for y in range(r - 1, -1, -1):
         if m < 0:
             break
         bord[y][m] = "x"
         m -= 1
-    # x out
     m = c + 1
     for y in range(r - 1, -1, -1):
         if m >= len(bord):
             break
         bord[y][m] = "x"
         m += 1
-    # x out
     m = c - 1
     for y in range(r + 1, len(bord)):
         if m < 0:
