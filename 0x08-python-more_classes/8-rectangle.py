@@ -63,7 +63,8 @@ class Rectangle:
 
     def __repr__(self):
         """representation of the rectangle"""
-        return "Rectangle(" + str(self.__width) + ", " + str(self.__height) + ")"
+        x = str(self.__height)
+        return "Rectangle(" + str(self.__width) + ", " + x + ")"
 
     def __del__(self):
         """Print the message Bye rectangle..."""
