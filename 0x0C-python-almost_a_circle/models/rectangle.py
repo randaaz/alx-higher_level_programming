@@ -99,3 +99,8 @@ class Rectangle(Base):
             self.u_arguments(*args)
         if kwargs:
             self.u_arguments(**kwargs)
+
+    def to_dictionary(self):
+        '''dictionary representation'''
+        return {"id": self.id, "width": self.__width, "height": self.__height,
+                "x": self.__x, "y": self.__y}
