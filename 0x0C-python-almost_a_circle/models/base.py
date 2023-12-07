@@ -23,6 +23,14 @@ class Base:
         else:
             return dumps(list_dictionaries)
 
+    @staticmethod
+    def from_json_string(json_string):
+        """ JSON string representation"""
+        if json_string is None or not json_string:
+            return []
+        else:
+            return loads(json_string)
+
     @classmethod
     def save_to_file(cls, list_objs):
         """writes the JSON string representation"""
@@ -31,10 +39,16 @@ class Base:
         with open("{}.json".format(cls.__name__), "w", encoding="utf-8") as fi:
             fi.write(cls.to_json_string(list_objs))
 
-    @staticmethod
-    def from_json_string(json_string):
-        """ JSON string representation"""
-        if json_string is None or not json_string:
-            return []
+    @classmethod
+    def create(cls, **dictionary):
+        """an instance with all attributes already set"""
+        from models.rectangle import Rectangle
+        from models.square import Square
+        if cls is Rectangle:
+            new_o = Rectangle(1, 1)
+        elif cls is Square:
+            new_o = Square(1)
         else:
-            return loads(json_string)
+            new_o = None
+        new_o.update(**dictionary)
+        return new_o
