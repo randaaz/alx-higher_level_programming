@@ -39,3 +39,8 @@ class Square(Rectangle):
             self.u_arguments(*args)
         if kwargs:
             self.u_arguments(**kwargs)
+
+    def to_dictionary(self):
+        """representation"""
+        return {"id": self.id, "size": self.width,
+                "x": self.x, "y": self.y}
