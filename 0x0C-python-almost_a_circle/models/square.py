@@ -21,3 +21,21 @@ class Square(Rectangle):
     def size(self, value):
         self.width = value
         self.height = value
+
+    def u_arguments(self, id=None, size=None, x=None, y=None):
+        """assigns an argument"""
+        if id is not None:
+            self.id = id
+        if size is not None:
+            self.width = size
+        if x is not None:
+            self.x = x
+        if y is not None:
+            self.y = y
+
+    def update(self, *args, **kwargs):
+        """update argument"""
+        if args:
+            self.u_arguments(*args)
+        if kwargs:
+            self.u_arguments(**kwargs)
