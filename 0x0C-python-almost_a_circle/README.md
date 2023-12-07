@@ -7,7 +7,7 @@
 - Learn how to serialize and deserialize a Class
 - Acquire the skill to write and read a JSON file
 - Understand and implement *args and **kwargs in functions
-- Learn to handle named arguments in a function
+- Learn to handle named arguments in a functions
 
 ### Copyright - Plagiarism:
 - Develop solutions for the tasks without copying and pasting someone else’s work
