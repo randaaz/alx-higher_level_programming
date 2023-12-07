@@ -42,8 +42,8 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """an instance with all attributes already set"""
-        from models.rectangle import Rectangle
-        from models.square import Square
+        from rectangle import Rectangle
+        from square import Square
         if cls is Rectangle:
             new_o = Rectangle(1, 1)
         elif cls is Square:
@@ -52,3 +52,13 @@ class Base:
             new_o = None
         new_o.update(**dictionary)
         return new_o
+
+    @classmethod
+    def load_from_file(cls):
+        """list of instances"""
+        from os import path
+        json_fi = "{}.json".format(cls.__name__)
+        if not path.isfile(json_fi):
+            return []
+        with open(json_fi, "r", encoding="utf-8") as fi:
+            return [cls.create(**c) for c in cls.from_json_string(fi.read())]
