@@ -27,7 +27,7 @@ class Square(Rectangle):
         if id is not None:
             self.id = id
         if size is not None:
-            self.width = size
+            self.size = size
         if x is not None:
             self.x = x
         if y is not None:

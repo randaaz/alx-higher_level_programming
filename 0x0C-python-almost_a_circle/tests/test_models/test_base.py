@@ -85,7 +85,6 @@ were given"
         n = Base(id=j)
         self.assertEqual(n.id, j)
 
-    # ----------------- Tests for #15 ------------------------
     def test_to_json_str(self):
         '''Tests to_json_string'''
         with self.assertRaises(TypeError) as e:
@@ -157,7 +156,6 @@ were given"
         dicti = dicti.replace("'", '"')
         self.assertEqual(dicti, json_dicti)
 
-    # ----------------- Tests for #17 ------------------------
     def test_from_json_str(self):
         '''Tests to_json_str'''
         with self.assertRaises(TypeError) as e:
@@ -209,7 +207,6 @@ were given"
             Rectangle.to_json_string(l_n))
         self.assertEqual(l_n, l_o)
 
-        # ----------------- Tests for #16 ------------------------
     def test_s_to_file(self):
         '''Tests save_to_file'''
         import os
@@ -254,7 +251,6 @@ were given"
         with open("Square.json", "r") as file:
             self.assertEqual(len(file.read()), 38)
 
-        # ----------------- Tests for #18 ------------------------
     def test_create(self):
         '''Tests test_create'''
         h1 = Rectangle(5, 3, 9)
@@ -264,7 +260,6 @@ were given"
         self.assertFalse(h1 is h2)
         self.assertFalse(h1 == h2)
 
-        # ----------------- Tests for #19 ------------------------
     def test_load_f_f(self):
         '''Tests test_load_f_f'''
         h1 = Rectangle(12, 7, 4, 8)

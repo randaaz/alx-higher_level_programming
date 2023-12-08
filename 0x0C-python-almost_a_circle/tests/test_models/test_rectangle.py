@@ -19,8 +19,6 @@ class CustomRectangleTests(unittest.TestCase):
         '''tests tearDown'''
         pass
 
-    # ----------------- Tests for #2 ------------------------
-
     def test_c(self):
         '''Tests the type of class'''
         self.assertEqual(str(Rectangle),
@@ -151,8 +149,6 @@ given"
         self.assertEqual(h.height, 101)
         self.assertEqual(h.x, 102)
         self.assertEqual(h.y, 103)
-
-    # ----------------- Tests for #3 ------------------------
 
     def _types(self):
         '''Tests invaled type'''
