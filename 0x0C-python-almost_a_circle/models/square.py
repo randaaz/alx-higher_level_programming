@@ -1,16 +1,18 @@
+#!/usr/bin/python3
 """souare class module"""
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
     """souare class"""
+
     def __init__(self, size, x=0, y=0, id=None):
-         """informatin about souare"""
+        """informatin."""
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
         """informatin about souare"""
-        return "[{}] ({}) {}/{} - {}".\
+        return '[{}] ({}) {}/{} - {}'.\
             format(type(self).__name__, self.id, self.x, self.y, self.width)
 
     @property
@@ -38,7 +40,7 @@ class Square(Rectangle):
         """update argument"""
         if args:
             self.u_arguments(*args)
-        if kwargs:
+        elif kwargs:
             self.u_arguments(**kwargs)
 
     def to_dictionary(self):
