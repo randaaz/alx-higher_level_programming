@@ -1,6 +1,7 @@
 #!/usr/bin/node
 //script that prints 3 lines using for loop
 let i;
-for (i = 0; i < 1; i++) {
-    console.log("C is fun\nPython is cool\nJavaScript is amazing");
+let array = ["C is fun", "Python is cool", "JavaScript is amazing"]
+for (i = 0; i < 3; i++) {
+    console.log(array[i]);
 }
