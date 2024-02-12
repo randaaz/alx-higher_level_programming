@@ -6,9 +6,7 @@ if (isNaN(x)) {
 else {
     for (let i = 0; i < x; i++) {
         let a = "";
-        for (let j = 0; j < x; j++) {
-            a += "X";
-        }
+        for (let j = 0; j < x; j++) a += "X";
         console.log(a);
 
     }
