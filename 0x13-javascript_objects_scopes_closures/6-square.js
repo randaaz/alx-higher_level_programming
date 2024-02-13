@@ -11,7 +11,7 @@ class Square extends Square2 {
       for (let j = 0; j < this.width; j++) {
         x += c;
       }
-      console.log(s);
+      console.log(x);
     }
   }
 }
