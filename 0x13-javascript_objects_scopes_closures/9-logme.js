@@ -2,6 +2,6 @@
 let con = 0;
 
 exports.logMe = function (item) {
-  console.log(narg + ': ' + item);
+  console.log(con + ': ' + item);
   con++;
 };
