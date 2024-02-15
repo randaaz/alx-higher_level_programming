@@ -1,12 +1,13 @@
 #!/usr/bin/python3
 """
-This script updates the name of a state
-in a MySQL database using SQLAlchemy.
+This script retrieves and prints information about cities and their
+corresponding states from a MySQL database using SQLAlchemy.
 """
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from model_state import State
+from relationship_state import State
+from relationship_city import City
 
 if __name__ == "__main__":
     enname = create_engine("mysql+mysqldb://{}:{}@localhost/{}"
@@ -15,6 +16,5 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=enname)
     session = Session()
 
-    st = session.query(State).filter_by(id=2).first()
-    st.name = "New Mexico"
-    session.commit()
+    for cy in session.query(City).order_by(City.id):
+        print("{}: {} -> {}".format(cy.id, cy.name, cy.state.name))
