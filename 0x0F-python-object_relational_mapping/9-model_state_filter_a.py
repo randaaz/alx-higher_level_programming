@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 """
-This script connects to a MySQL database using
-SQLAlchemy and retrieves information
-from the 'states' table. It utilizes the
-'model_state' module, which contains the
-definition of the 'State' class representing a
-state entity in the database.
+This script connects to a MySQL database using SQLAlchemy
+and retrieves information
+about states from the 'states' table whose names
+contain the letter 'a'. It utilizes
+the 'model_state' module, which contains the
+definition of the 'State' class
+representing a state entity in the database.
 """
 import sys
 from sqlalchemy import create_engine
@@ -19,5 +20,6 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=enname)
     session = Session()
 
-    for state in session.query(State).order_by(State.id):
-        print("{}: {}".format(state.id, state.name))
+    for st in session.query(State).order_by(State.id):
+        if "a" in st.name:
+            print("{}: {}".format(st.id, st.name))
