@@ -18,8 +18,8 @@ if __name__ == "__main__":
     s = d.cursor()
     s.execute("SELECT * FROM states WHERE name LIKE '{:s}' ORDER BY \
     id ASC".format(sys.argv[4]))
-    st = s.fetchall()
-    for t in st:
+    states = s.fetchall()
+    for t in states:
         if t[1] == sys.argv[4]:
             print(t)
     s.close()
