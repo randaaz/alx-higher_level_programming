@@ -11,7 +11,7 @@ In this project, you will link the worlds of Databases and Python using Object-R
 
 ## Tasks
 - 14 mandatory tasks
-- 7 advanced tasks
+- 3 advanced tasks
 
 ### Without ORM:
 ```python
