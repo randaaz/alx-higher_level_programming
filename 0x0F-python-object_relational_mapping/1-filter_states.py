@@ -10,7 +10,7 @@ import sys
 import MySQLdb
 
 if __name__ == "__main__":
-    d = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], d=sys.argv[3])
-    s = d.cursor()
+    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
+    s = db.cursor()
     s.execute("SELECT * FROM `states` ORDER BY `id`")
     [print(state) for state in s.fetchall() if state[1][0] == "N"]

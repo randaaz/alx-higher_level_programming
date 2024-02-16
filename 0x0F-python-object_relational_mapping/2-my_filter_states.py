@@ -13,9 +13,9 @@ import sys
 import MySQLdb
 
 if __name__ == "__main__":
-    d = MySQLdb.connect(user=sys.argv[1], port=3306, host="localhost",
-                        passwd=sys.argv[2], d=sys.argv[3])
-    s = d.cursor()
+    db = MySQLdb.connect(user=sys.argv[1], port=3306, host="localhost",
+                        passwd=sys.argv[2], db=sys.argv[3])
+    s = db.cursor()
     s.execute("SELECT * FROM states WHERE name LIKE '{:s}' ORDER BY \
     id ASC".format(sys.argv[4]))
     states = s.fetchall()
@@ -23,4 +23,4 @@ if __name__ == "__main__":
         if t[1] == sys.argv[4]:
             print(t)
     s.close()
-    d.close()
+    db.close()
