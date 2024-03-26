@@ -9,8 +9,8 @@ require.get(url + id, function (error, res, body) {
   }
   const da = JSON.parse(body);
   const d = da.characters;
-  for (const i of d) {
-    require.get(i, function (error, res, body1) {
+  for (const j of d) {
+    require.get(j, function (error, res, body1) {
       if (error) {
         console.log(error);
       }
