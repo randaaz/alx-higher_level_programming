@@ -9,8 +9,8 @@ request(url, function (err, response, body) {
   } else if (response.statusCode === 200) {
     const comp = {};
     const tas = JSON.parse(body);
-    for (const i in tas) {
-      const task = tas[i];
+    for (const j in tas) {
+      const task = tas[j];
       if (task.comp === true) {
         if (comp[task.userId] === undefined) {
           comp[task.userId] = 1;
